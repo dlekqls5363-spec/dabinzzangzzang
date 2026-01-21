@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>독도: 동해의 찬란한 아침</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap');
+        body { font-family: 'Noto Sans KR', sans-serif; overflow-x: hidden; }
+        
+        .hero-gradient {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1541829070764-84a7d30dee62?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 nav-blur border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-water text-blue-600 text-2xl"></i>
+                    <span class="text-2xl font-black tracking-tighter text-blue-900">DOKDO</span>
+                </div>
+                <div class="hidden md:flex items-center gap-10 font-bold text-gray-700">
+                    <a href="01.html" class="hover:text-blue-600 transition-colors">역사 연표</a>
+                    <a href="02.html" class="hover:text-blue-600 transition-colors">내용 정리</a>
+                    <a href="03.html" class="hover:text-blue-600 transition-colors">문의하기</a>
+                </div>
+                <div class="md:hidden text-2xl">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient h-screen flex items-center justify-center text-center text-white px-4">
+        <div class="max-w-4xl">
+            <h2 class="text-xl md:text-2xl font-bold mb-4 tracking-widest floating">대한민국 동쪽 제일 끝 섬</h2>
+            <h1 class="text-5xl md:text-8xl font-black mb-8 leading-tight">독도, <br><span class="text-blue-400">우리의 유산</span></h1>
+            <p class="text-lg md:text-xl opacity-90 mb-12 max-w-2xl mx-auto leading-relaxed">
+                6세기부터 오늘날까지 변함없이 우리와 함께해온 독도. <br>
+                그 찬란한 역사와 지리적 가치를 지금 확인해보세요.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="01.html" class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-full font-bold text-lg transition-all">연표 탐색하기</a>
+                <a href="02.html" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 px-10 py-4 rounded-full font-bold text-lg backdrop-blur-md transition-all">자료실 이동</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Features Section -->
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-20">
+            <h2 class="text-blue-600 font-bold tracking-widest mb-2 uppercase">Core Information</h2>
+            <p class="text-4xl font-extrabold text-gray-900">독도를 알아가는 세 가지 방법</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-10">
+            <!-- Timeline Link -->
+            <a href="01.html" class="card-hover bg-white p-10 rounded-3xl border border-gray-100 transition-all flex flex-col items-center text-center">
+                <div class="w-20 h-20 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-3xl mb-8">
+                    <i class="fa-solid fa-timeline"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">역사적 연표</h3>
+                <p class="text-gray-500 leading-relaxed mb-6">신라 이사부의 우산국 복속부터 현대의 영유권 수호까지 모든 역사를 타임라인으로 정리했습니다.</p>
+                <span class="text-blue-600 font-bold flex items-center gap-2 mt-auto">바로가기 <i class="fa-solid fa-arrow-right text-sm"></i></span>
+            </a>
+
+            <!-- Content Summary Link -->
+            <a href="02.html" class="card-hover bg-white p-10 rounded-3xl border border-gray-100 transition-all flex flex-col items-center text-center">
+                <div class="w-20 h-20 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center text-3xl mb-8">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">내용 정리</h3>
+                <p class="text-gray-500 leading-relaxed mb-6">지리적 특성, 천연기념물 보호구역, 영토 주권의 정당성 등 독도에 관한 핵심 지식을 요약했습니다.</p>
+                <span class="text-indigo-600 font-bold flex items-center gap-2 mt-auto">바로가기 <i class="fa-solid fa-arrow-right text-sm"></i></span>
+            </a>
+
+            <!-- Contact Link -->
+            <a href="03.html" class="card-hover bg-white p-10 rounded-3xl border border-gray-100 transition-all flex flex-col items-center text-center">
+                <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-3xl mb-8">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">문의 및 상담</h3>
+                <p class="text-gray-500 leading-relaxed mb-6">자료 요청이나 독도 교육 관련 문의사항은 언제든 문의함을 통해 남겨주세요.</p>
+                <span class="text-emerald-600 font-bold flex items-center gap-2 mt-auto">바로가기 <i class="fa-solid fa-arrow-right text-sm"></i></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Info Banner -->
+    <section class="bg-blue-900 py-20 text-white text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-6">"독도는 역사적, 지리적, 국제법적으로 명백한 우리 영토입니다."</h2>
+            <div class="h-1 w-20 bg-blue-400 mx-auto mb-8"></div>
+            <p class="text-blue-200 opacity-80 leading-loose">
+                우리가 독도를 더 잘 알고 사랑하는 것이 독도를 지키는 첫 걸음입니다. <br>
+                더 많은 자료와 교육 콘텐츠를 통해 독도의 소중함을 공유하세요.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-16 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="flex flex-col items-center md:items-start">
+                <div class="flex items-center gap-2 mb-4">
+                    <i class="fa-solid fa-water text-blue-600 text-xl"></i>
+                    <span class="text-xl font-black text-blue-900">DOKDO OFFICIAL</span>
+                </div>
+                <p class="text-gray-500 text-sm">대한민국 경상북도 울릉군 울릉읍 독도리 1-96</p>
+            </div>
+            
+            <div class="flex gap-10 text-gray-600 font-bold">
+                <a href="01.html" class="hover:text-blue-600">연표</a>
+                <a href="02.html" class="hover:text-blue-600">내용정리</a>
+                <a href="03.html" class="hover:text-blue-600">문의함</a>
+            </div>
+            
+            <div class="flex gap-4">
+                <div class="w-10 h-10 bg-white shadow-sm border rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-all cursor-pointer">
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+                <div class="w-10 h-10 bg-white shadow-sm border rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-all cursor-pointer">
+                    <i class="fa-brands fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-200 text-center text-gray-400 text-xs">
+            &copy; 2024 독도 주권 및 역사 보존위원회. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
