@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>독도 역사 아카이브</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8fafc; scroll-behavior: smooth; }
+        
+        /* 타임라인 세로선 */
+        .timeline-container { position: relative; }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: #e2e8f0;
+            z-index: 0;
+        }
+
+        /* 모바일 대응 타임라인 선 위치 변경 */
+        @media (max-width: 768px) {
+            .timeline-container::before {
+                left: 24px;
+                transform: none;
+            }
+        }
+
+        /* 시대 구분 뱃지 스티키 효과 */
+        .era-badge { 
+            background: #2563eb; 
+            color: white; 
+            padding: 6px 16px; 
+            border-radius: 9999px; 
+            font-weight: bold; 
+            display: inline-block;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        /* 호버 애니메이션 */
+        .history-card {
+            transition: all 0.3s ease;
+        }
+        .history-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="text-gray-900">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <i class="fa-solid fa-clock-rotate-left text-blue-600 text-2xl"></i>
+                    <span class="text-xl font-bold tracking-tight text-gray-800">DOKDO ARCHIVE</span>
+                </div>
+                <!-- Home Button (index.html로 이동) -->
+                <a href="index.html" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-bold transition-all shadow-md active:scale-95">
+                    <i class="fa-solid fa-house"></i>
+                    <span>홈으로</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-32 pb-16 bg-gradient-to-b from-white to-gray-50 border-b border-gray-100">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-6 text-gray-900">독도 역사 타임라인</h1>
+            <p class="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                고대부터 현대까지 독도가 우리 영토임을 증명하는 주요 사료와 역사적 사건들을 한눈에 확인하세요.
+            </p>
+        </div>
+    </header>
+
+    <!-- Timeline Main -->
+    <main class="max-w-6xl mx-auto py-20 px-4">
+        
+        <div class="timeline-container">
+            
+            <!-- Era 1: 15~17세기 -->
+            <div class="mb-32">
+                <div class="text-center mb-16 relative z-10">
+                    <span class="era-badge text-lg">15세기 — 17세기</span>
+                </div>
+                
+                <div class="space-y-16">
+                    <!-- Left Item -->
+                    <div class="flex flex-col md:flex-row items-center justify-between w-full">
+                        <div class="order-1 w-full md:w-[44%] history-card bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+                            <div class="text-blue-600 font-bold text-lg mb-2">1454년</div>
+                            <h3 class="text-xl font-bold mb-3">세종실록지리지</h3>
+                            <p class="text-gray-600 leading-relaxed">우산(독도)과 무릉(울릉도)이 강원도 울진현에 속한다고 기록하며, 두 섬의 거리가 멀지 않아 날씨가 맑으면 서로 보인다고 명시함.</p>
+                        </div>
+                        <div class="z-20 hidden md:flex items-center order-1 bg-blue-600 w-5 h-5 rounded-full border-4 border-white shadow-sm"></div>
+                        <div class="order-1 w-full md:w-[44%]"></div>
+                    </div>
+
+                    <!-- Right Item -->
+                    <div class="flex flex-col md:flex-row items-center justify-between w-full">
+                        <div class="order-1 w-full md:w-[44%]"></div>
+                        <div class="z-20 hidden md:flex items-center order-1 bg-blue-600 w-5 h-5 rounded-full border-4 border-white shadow-sm"></div>
+                        <div class="order-1 w-full md:w-[44%] history-card bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+                            <div class="text-blue-600 font-bold text-lg mb-2">1667년</div>
+                            <h3 class="text-xl font-bold mb-3">은주시청합기</h3>
+                            <p class="text-gray-600 leading-relaxed">일본 문헌으로서, 울릉도와 독도가 조선의 영토이며 일본의 북서쪽 한계는 오키섬이라고 기록하여 스스로 독도가 외해임을 인정함.</p>
+                        </div>
+                    </div>
+
+                    <!-- Left Item -->
+                    <div class="flex flex-col md:flex-row items-center justify-between w-full">
+                        <div class="order-1 w-full md:w-[44%] history-card bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+                            <div class="text-blue-600 font-bold text-lg mb-2">1693 ~ 1696년</div>
+                            <h3 class="text-xl font-bold mb-3">안용복의 활약</h3>
+                            <p class="text-gray-600 leading-relaxed">일본 어민들의 침범에 항의하기 위해 도일하여 울릉도와 독도가 조선 땅임을 확인받고 일본 막부의 도해 금지령을 이끌어냄.</p>
+                        </div>
+                        <div class="z-20 hidden md:flex items-center order-1 bg-blue-600 w-5 h-5 rounded-full border-4 border-white shadow-sm"></div>
+                        <div class="order-1 w-full md:w-[44%]"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Era 2: 18~19세기 -->
+            <div class="mb-32">
+                <div class="text-center mb-16 relative z-10">
+                    <span class="era-badge text-lg bg-indigo-600">18세기 — 19세기</span>
+                </div>
+                
+                <div class="space-y-16">
+                    <!-- Right Item -->
+                    <div class="flex flex-col md:flex-row items-center justify-between w-full">
+                        <div class="order-1 w-full md:w-[44%]"></div>
+                        <div class="z-20 hidden md:flex items-center order-1 bg-indigo-600 w-5 h-5 rounded-full border-4 border-white shadow-sm"></div>
+                        <div class="order-1 w-full md:w-[44%] history-card bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+                            <div class="text-indigo-600 font-bold text-lg mb-2">1877년</div>
+                            <h3 class="text-xl font-bold mb-3">태정관 지령</h3>
+                            <p class="text-gray-600 leading-relaxed">일본 최고 행정기관인 태정관이 "울릉도와 독도는 일본과 관계가 없다"는 것을 공식적으로 확정한 문서.</p>
+                        </div>
+                    </div>
+
+                    <!-- Highlight: 1900 -->
+                    <div class="flex flex-col md:flex-row items-center justify-between w-full">
+                        <div class="order-1 w-full md:w-[44%] history-card bg-blue-50 p-8 rounded-3xl shadow-md border-2 border-blue-200">
+                            <div class="text-blue-700 font-bold text-lg mb-2">1900년 10월 25일</div>
+                            <h3 class="text-2xl font-black mb-3 text-blue-900 italic">대한제국 칙령 제41호</h3>
+                            <p class="text-gray-700 leading-relaxed font-medium">독도를 울도군(울릉도) 관할 구역으로 명문화하여 근대 법적으로 독도가 대한민국 영토임을 전 세계에 공포함.</p>
+                        </div>
+                        <div class="z-20 hidden md:flex items-center order-1 bg-blue-800 w-6 h-6 rounded-full border-4 border-white shadow-lg"></div>
+                        <div class="order-1 w-full md:w-[44%]"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Era 3: 20세기 ~ 현재 -->
+            <div class="mb-10">
+                <div class="text-center mb-16 relative z-10">
+                    <span class="era-badge text-lg bg-slate-800">20세기 — 현재</span>
+                </div>
+                
+                <div class="space-y-16">
+                    <!-- Conflict Item (Red) -->
+                    <div class="flex flex-col md:flex-row items-center justify-between w-full">
+                        <div class="order-1 w-full md:w-[44%]"></div>
+                        <div class="z-20 hidden md:flex items-center order-1 bg-red-500 w-5 h-5 rounded-full border-4 border-white shadow-sm"></div>
+                        <div class="order-1 w-full md:w-[44%] history-card bg-red-50 p-8 rounded-3xl shadow-sm border border-red-100">
+                            <div class="text-red-600 font-bold text-lg mb-2">1905년</div>
+                            <h3 class="text-xl font-bold mb-3">시마네현 고시 제40호</h3>
+                            <p class="text-gray-600 leading-relaxed">일본이 러일전쟁 중 독도를 '무주지'라고 주장하며 불법적으로 자국 영토에 편입시키려 한 시도.</p>
+                        </div>
+                    </div>
+
+                    <!-- Liberation Item -->
+                    <div class="flex flex-col md:flex-row items-center justify-between w-full">
+                        <div class="order-1 w-full md:w-[44%] history-card bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+                            <div class="text-green-600 font-bold text-lg mb-2">1946년</div>
+                            <h3 class="text-xl font-bold mb-3">SCAPIN 제677호</h3>
+                            <p class="text-gray-600 leading-relaxed">연합군최고사령관 지령으로 제2차 세계대전 후 일본의 통치 범위에서 독도를 제외하여 한국으로 반환함.</p>
+                        </div>
+                        <div class="z-20 hidden md:flex items-center order-1 bg-green-600 w-5 h-5 rounded-full border-4 border-white shadow-sm"></div>
+                        <div class="order-1 w-full md:w-[44%]"></div>
+                    </div>
+
+                    <!-- Modern Item -->
+                    <div class="flex flex-col md:flex-row items-center justify-between w-full">
+                        <div class="order-1 w-full md:w-[44%]"></div>
+                        <div class="z-20 hidden md:flex items-center order-1 bg-blue-600 w-5 h-5 rounded-full border-4 border-white shadow-sm"></div>
+                        <div class="order-1 w-full md:w-[44%] history-card bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+                            <div class="text-blue-600 font-bold text-lg mb-2">1952년 ~ 현재</div>
+                            <h3 class="text-xl font-bold mb-3">평화선 선포와 실효적 지배</h3>
+                            <p class="text-gray-600 leading-relaxed">이승만 대통령의 평화선 선포 이후 독도의용수비대의 헌신과 독도경비대의 상주를 통해 명실상부한 우리 영토로 수호 중.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-16 mt-20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex justify-center gap-6 mb-8">
+                <i class="fa-solid fa-anchor text-2xl opacity-50"></i>
+                <i class="fa-solid fa-fish text-2xl opacity-50"></i>
+                <i class="fa-solid fa-flag text-2xl opacity-50"></i>
+            </div>
+            <p class="text-sm">참고 문헌: 국가지역정보, 외교부 독도 정보, 세종실록지리지</p>
+            <p class="mt-4 text-xs opacity-60 italic">"역사를 잊은 민족에게 미래는 없다"</p>
+            <p class="mt-8">&copy; 2024 Dokdo Sovereignty & Peace. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
