@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>독도: 주권과 평화의 섬</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+        body { font-family: 'Noto Sans KR', sans-serif; scroll-behavior: smooth; }
+        .hero-gradient { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1599933310632-474070857367?auto=format&fit=crop&q=80&w=2000') center/cover; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <i class="fa-solid fa-mountain-sun text-blue-600 text-2xl"></i>
+                    <span class="text-xl font-bold tracking-tight">DOKDO KOREA</span>
+                </div>
+                
+                <!-- Desktop Menu & Home Button -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:flex items-baseline space-x-8 mr-4">
+                        <a href="#intro" class="hover:text-blue-600 px-2 py-2 font-medium transition-colors">소개</a>
+                        <a href="#geography" class="hover:text-blue-600 px-2 py-2 font-medium transition-colors">지리</a>
+                        <a href="#history" class="hover:text-blue-600 px-2 py-2 font-medium transition-colors">역사</a>
+                        <a href="#peace" class="hover:text-blue-600 px-2 py-2 font-medium transition-colors">평화</a>
+                    </div>
+                    <!-- Home Button -->
+                    <a href="index.html" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-bold transition-all shadow-sm">
+                        <i class="fa-solid fa-house"></i>
+                        <span class="hidden sm:inline">홈</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="intro" class="hero-gradient h-screen flex items-center justify-center text-center text-white px-4">
+        <div class="max-w-4xl">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">동해의 끝, 주권의 시작<br>아름다운 섬 독도</h1>
+            <p class="text-xl md:text-2xl mb-10 opacity-90 font-light">6세기 신라부터 현재까지, 우리가 지켜온 역사적 영토 주권의 기록</p>
+            <a href="#geography" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg font-medium transition-all">자세히 알아보기</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section 1: Geography -->
+        <section id="geography" class="mb-32">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">01. 지리적 특성</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1598124146163-36819847286d?auto=format&fit=crop&q=80&w=800" alt="독도 전경" class="rounded-2xl shadow-xl">
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-blue-600">
+                        <h3 class="text-xl font-bold mb-2">위치와 구성</h3>
+                        <p class="text-gray-600">경상북도 울릉군 울릉읍 독도리 1~96번지. 동도와 서도라는 두 개의 주요 섬과 89개의 부속 도서로 구성되어 있습니다.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-blue-600">
+                        <h3 class="text-xl font-bold mb-2">자연의 보고</h3>
+                        <p class="text-gray-600">천연기념물 제336호(독도 천연보호구역)로 지정되어 있으며, 괭이갈매기, 바다제비 등 희귀 조류와 독특한 해양 생태계를 보유하고 있습니다.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-blue-600">
+                        <h3 class="text-xl font-bold mb-2">경제적·전략적 가치</h3>
+                        <p class="text-gray-600">황금어장으로서의 가치뿐만 아니라, 미래 에너지 자원인 '메탄하이드레이트'가 매장되어 있으며 기상 및 해양 관측의 요충지입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: History Timeline -->
+        <section id="history" class="mb-32 bg-gray-900 text-white py-20 px-8 rounded-3xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4 text-white">02. 주권의 역사</h2>
+                <p class="text-gray-400">사료와 지도가 증명하는 명백한 한국의 영토</p>
+            </div>
+            
+            <div class="relative border-l border-gray-700 ml-4 md:ml-0 md:flex md:border-l-0 md:border-t md:justify-between">
+                <!-- Timeline Items -->
+                <div class="mb-10 ml-6 md:ml-0 md:mt-6 md:w-1/5 relative">
+                    <div class="absolute -left-[31px] md:-top-[31px] md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-gray-900"></div>
+                    <h4 class="font-bold text-blue-400">512년 (신라)</h4>
+                    <p class="text-sm text-gray-300 mt-2">이사부가 우산국을 복속시키며 한국의 역사에 처음 등장</p>
+                </div>
+                <div class="mb-10 ml-6 md:ml-0 md:mt-6 md:w-1/5 relative">
+                    <div class="absolute -left-[31px] md:-top-[31px] md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-gray-900"></div>
+                    <h4 class="font-bold text-blue-400">1454년 (조선)</h4>
+                    <p class="text-sm text-gray-300 mt-2">『세종실록 지리지』에 울릉도와 독도가 별개의 섬으로 명시됨</p>
+                </div>
+                <div class="mb-10 ml-6 md:ml-0 md:mt-6 md:w-1/5 relative">
+                    <div class="absolute -left-[31px] md:-top-[31px] md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-gray-900"></div>
+                    <h4 class="font-bold text-blue-400">1696년 (안용복)</h4>
+                    <p class="text-sm text-gray-300 mt-2">일본 막부로부터 울릉도와 독도가 조선 영토임을 확인받음</p>
+                </div>
+                <div class="mb-10 ml-6 md:ml-0 md:mt-6 md:w-1/5 relative">
+                    <div class="absolute -left-[31px] md:-top-[31px] md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-gray-900"></div>
+                    <h4 class="font-bold text-blue-400">1900년 (대한제국)</h4>
+                    <p class="text-sm text-gray-300 mt-2">칙령 제41호를 통해 독도를 울도군 관할로 명문화</p>
+                </div>
+                <div class="mb-10 ml-6 md:ml-0 md:mt-6 md:w-1/5 relative">
+                    <div class="absolute -left-[31px] md:-top-[31px] md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-gray-900"></div>
+                    <h4 class="font-bold text-blue-400">1946년 (해방 후)</h4>
+                    <p class="text-sm text-gray-300 mt-2">SCAPIN 제677호를 통해 일본의 통치 범위에서 제외됨</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Conflict and Peace -->
+        <section id="peace" class="mb-20">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">03. 갈등을 넘어 평화로</h2>
+                <div class="w-20 h-1 bg-green-600 mx-auto"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Cards -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-t-8 border-red-500">
+                    <div class="w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-triangle-exclamation text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">갈등의 핵심</h3>
+                    <ul class="space-y-3 text-gray-600 list-disc pl-5">
+                        <li>일본의 '다케시마의 날' 제정</li>
+                        <li>일본 교과서의 역사 왜곡 기술</li>
+                        <li>일방적인 영유권 주장으로 인한 긴장</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-t-8 border-green-500">
+                    <div class="w-12 h-12 bg-green-100 text-green-600 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-handshake text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">평화적 해결 노력</h3>
+                    <ul class="space-y-3 text-gray-600 list-disc pl-5">
+                        <li>역사적 사실에 근거한 정당한 이해</li>
+                        <li>감정적 대립보다는 논리적인 대응</li>
+                        <li>민간 단계의 활발한 교류와 대화</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-t-8 border-blue-500">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-earth-asia text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">우리의 역할</h3>
+                    <ul class="space-y-3 text-gray-600 list-disc pl-5">
+                        <li>정확한 지식 습득 및 홍보</li>
+                        <li>독도 수호 활동에 대한 관심</li>
+                        <li>미래지향적인 한일 관계 모색</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="bg-blue-50 rounded-3xl p-12 text-center">
+            <h3 class="text-2xl font-bold mb-4">독도를 지키는 힘은 우리의 '관심'에서 나옵니다.</h3>
+            <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+                독도는 단순한 섬이 아닙니다. 우리 민족의 아픈 역사를 딛고 일어선 자존심이자, 평화로운 동북아시아를 위한 화합의 상징입니다.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:shadow-lg transition-all" onclick="showShareMessage()">독도 홍보하기</button>
+                <a href="https://dokdo.mofa.go.kr" target="_blank" class="bg-white border border-blue-600 text-blue-600 px-6 py-2 rounded-lg font-medium hover:bg-blue-50 transition-all">외교부 독도 사이트 방문</a>
+            </div>
+            <div id="share-msg" class="hidden mt-4 text-blue-600 font-bold animate-bounce">감사합니다! 독도를 널리 알려주세요.</div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-12 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 text-sm">
+            <p class="mb-2">본 페이지는 제공된 교육 자료를 바탕으로 제작되었습니다.</p>
+            <p>&copy; 2024 독도 교육 프로젝트. 모든 권리는 우리에게 있습니다.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showShareMessage() {
+            const msg = document.getElementById('share-msg');
+            msg.classList.remove('hidden');
+            setTimeout(() => {
+                msg.classList.add('hidden');
+            }, 3000);
+        }
+
+        window.addEventListener('scroll', () => {
+            const sections = ['intro', 'geography', 'history', 'peace'];
+            let current = '';
+            
+            sections.forEach(section => {
+                const element = document.getElementById(section);
+                const rect = element.getBoundingClientRect();
+                if (rect.top <= 100) current = section;
+            });
+        });
+    </script>
+</body>
+</html>
