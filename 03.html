@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>독도 의견 수렴함</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap');
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8fafc; }
+        .form-shadow { box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body class="text-gray-900">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center gap-2">
+                    <i class="fa-solid fa-water text-blue-600 text-2xl"></i>
+                    <span class="text-2xl font-black tracking-tighter text-blue-900">DOKDO</span>
+                </a>
+                <div class="hidden md:flex items-center gap-10 font-bold text-gray-700">
+                    <a href="01.html" class="hover:text-blue-600 transition-colors">역사 연표</a>
+                    <a href="02.html" class="hover:text-blue-600 transition-colors">내용 정리</a>
+                    <a href="03.html" class="text-blue-600">문의하기</a>
+                </div>
+                <a href="index.html" class="text-gray-500 hover:text-blue-600 font-bold">
+                    <i class="fa-solid fa-house mr-1"></i> 홈으로
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="pt-32 pb-12 bg-blue-50">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h1 class="text-3xl md:text-4xl font-black text-blue-900 mb-4">독도 의견 수렴함</h1>
+            <p class="text-gray-600 leading-relaxed">
+                우리 땅 독도에 대한 여러분의 생각이나 소중한 의견을 남겨주세요.<br>
+                남겨주신 의견은 로컬 저장소에 안전하게 보관됩니다.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto py-12 px-6">
+        
+        <!-- Input Form -->
+        <section class="bg-white p-8 rounded-3xl form-shadow mb-12 border border-gray-100">
+            <h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-pen-to-square text-blue-500"></i> 의견 작성하기
+            </h2>
+            <form id="opinionForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">작성자</label>
+                    <input type="text" id="author" required placeholder="성함을 입력하세요"
+                        class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">의견 내용</label>
+                    <textarea id="content" required rows="4" placeholder="독도에 대한 의견이나 질문을 자유롭게 적어주세요"
+                        class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"></textarea>
+                </div>
+                <button type="submit" 
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg transition-all active:scale-95">
+                    의견 등록하기
+                </button>
+            </form>
+        </section>
+
+        <!-- Opinion List Section -->
+        <section>
+            <div class="flex justify-between items-end mb-6">
+                <h2 class="text-2xl font-black text-gray-900">우리의 목소리</h2>
+                <button id="clearAll" class="text-sm text-red-500 hover:underline font-medium">전체 삭제</button>
+            </div>
+            
+            <div id="opinionList" class="space-y-4">
+                <!-- 의견이 없을 때 표시할 메시지 -->
+                <div id="emptyMessage" class="text-center py-20 bg-gray-100 rounded-3xl border-2 border-dashed border-gray-300">
+                    <i class="fa-solid fa-comments text-4xl text-gray-300 mb-4"></i>
+                    <p class="text-gray-400 font-medium">아직 등록된 의견이 없습니다.<br>첫 번째 의견을 남겨주세요!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white py-10 border-t border-gray-200 mt-20">
+        <div class="max-w-4xl mx-auto px-6 text-center text-gray-400 text-xs">
+            <p>&copy; 2024 독도 주권 및 역사 보존위원회. 로컬 저장소 기반 의견 관리 시스템.</p>
+        </div>
+    </footer>
+
+    <script>
+        const opinionForm = document.getElementById('opinionForm');
+        const opinionList = document.getElementById('opinionList');
+        const emptyMessage = document.getElementById('emptyMessage');
+        const clearAllBtn = document.getElementById('clearAll');
+
+        // 로컬 스토리지에서 데이터 불러오기
+        let opinions = JSON.parse(localStorage.getItem('dokdo_opinions')) || [];
+
+        // 화면 렌더링 함수
+        function renderOpinions() {
+            opinionList.innerHTML = '';
+            
+            if (opinions.length === 0) {
+                opinionList.appendChild(emptyMessage);
+                return;
+            }
+
+            // 최신 글이 위로 오도록 역순 정렬
+            [...opinions].reverse().forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'bg-white p-6 rounded-2xl shadow-sm border border-gray-100 animate-fade-in-up';
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold">
+                                ${item.author[0]}
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">${item.author}</h4>
+                                <p class="text-xs text-gray-400">${item.date}</p>
+                            </div>
+                        </div>
+                        <button onclick="deleteOpinion(${opinions.length - 1 - index})" class="text-gray-300 hover:text-red-500 transition-colors">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed whitespace-pre-wrap">${item.content}</p>
+                `;
+                opinionList.appendChild(card);
+            });
+        }
+
+        // 의견 저장 함수
+        opinionForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const author = document.getElementById('author').value;
+            const content = document.getElementById('content').value;
+            const date = new Date().toLocaleString('ko-KR');
+
+            const newOpinion = { author, content, date };
+            opinions.push(newOpinion);
+
+            localStorage.setItem('dokdo_opinions', JSON.stringify(opinions));
+            
+            // 입력창 초기화
+            opinionForm.reset();
+            renderOpinions();
+        });
+
+        // 특정 의견 삭제 함수
+        window.deleteOpinion = (index) => {
+            if(confirm('이 의견을 삭제하시겠습니까?')) {
+                opinions.splice(index, 1);
+                localStorage.setItem('dokdo_opinions', JSON.stringify(opinions));
+                renderOpinions();
+            }
+        };
+
+        // 전체 삭제 함수
+        clearAllBtn.addEventListener('click', () => {
+            if(confirm('모든 의견을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.')) {
+                opinions = [];
+                localStorage.removeItem('dokdo_opinions');
+                renderOpinions();
+            }
+        });
+
+        // 초기 실행
+        renderOpinions();
+    </script>
+
+    <style>
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up { animation: fade-in-up 0.4s ease-out; }
+    </style>
+</body>
+</html>
